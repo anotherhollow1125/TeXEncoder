@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>TeX Encoder</title>
+
+</head>
+<body>
+  <h1 style="color:green;">TeX Encoder</h1>
+  <br>
+  <br>
+  <div id='preview'></div>
+  <br>
+  <br>
+  <div id='encoded'></div>
+  <br>
+  <br>
+  <textarea id='source' rows='5' cols='50'>\TeX</textarea>
+  <button id='button'>変換</button>
+<script>
+  var but = document.getElementById("button");
+  but.addEventListener("click",function(){
+    var src = document.getElementById("source");
+    var enc = document.getElementById("encoded");
+    var pre = document.getElementById("preview");
+
+    var result;
+    var str1 = "img src='https://chart.googleapis.com/chart?cht=tx&chl=";
+    var str2 = "'";
+    result = str1 + encodeURIComponent(src.value) + str2;
+    enc.innerHTML = "<pre>&lt;" + result + "&gt;</pre>";
+    pre.innerHTML = "<" + result + ">";
+  },false);
+  but.click();
+</script>
+</body>
+</html>
